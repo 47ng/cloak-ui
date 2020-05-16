@@ -30,13 +30,13 @@ jobs:
         name: Build web app
 
       # Continuous Delivery Pipeline --
-      #- uses: dswistowski/surge-sh-action@341bcbd
-      #  name: Publish to Surge
-      #  with:
-      #    domain: ${{ secrets.DEPLOYMENT_URL }}
-      #    project: ./out
-      #    login: ${{ secrets.SURGE_LOGIN }}
-      #    token: ${{ secrets.SURGE_TOKEN }}
+      - uses: dswistowski/surge-sh-action@341bcbd
+        name: Publish to Surge
+        with:
+          domain: https://cloak.47ng.com
+          project: ./out
+          login: ${{ secrets.SURGE_LOGIN }}
+          token: ${{ secrets.SURGE_TOKEN }}
       - uses: 8398a7/action-slack@78391c2
         name: Notify on Slack
         if: always() # Pick up events even if the job fails or is canceled.
