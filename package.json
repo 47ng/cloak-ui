@@ -31,16 +31,22 @@
   },
   "dependencies": {
     "@47ng/chakra-next": "^2.2.0",
+    "@47ng/cloak": "^1.0.0",
+    "@47ng/codec": "^1.0.0",
     "@chakra-ui/core": "^0.7.0",
     "@emotion/core": "^10.0.28",
     "@emotion/styled": "^10.0.27",
     "@sentry/browser": "^5.15.5",
     "@sentry/integrations": "^5.15.5",
+    "dayjs": "^1.8.27",
     "emotion-theming": "^10.0.27",
     "next": "^9.4.0",
+    "next-usequerystate": "^1.0.1",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
-    "react-icons": "^3.10.0"
+    "react-icons": "^3.10.0",
+    "react-table": "^7.0.5",
+    "vegemite": "^1.0.0"
   },
   "devDependencies": {
     "@commitlint/config-conventional": "^8.3.4",
@@ -49,6 +55,7 @@
     "@next/mdx": "^9.4.0",
     "@types/jest": "^25.2.2",
     "@types/node": "^14.0.1",
+    "@types/react-table": "^7.0.17",
     "@zeit/next-source-maps": "^0.0.3",
     "commitlint": "^8.3.5",
     "dotenv": "^8.2.0",
