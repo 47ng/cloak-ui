@@ -19,10 +19,6 @@ export const EnvVarView: React.FC<EnvVarViewProps> = ({ ...props }) => {
         fontFamily={theme.fonts.mono}
         fontSize="sm"
         bg="gray.300"
-        //         defaultValue={`
-        // CLOAK_MASTER_KEY=k1.aesgcm256.DL2G9PQeZ9r65J59pph6dy9Sk4fBLEZ3CTQZsandgYE=\n
-        // CLOAK_KEYCHAIN=v1.aesgcm256.6f28c026.jr9fqMA_RfNhIjHz.lo4IfIYfZ0zxrdSns_ibWq6YX1D5AnzN-fhUF0CKVx5dRVIo0x-Atumr9WZqpHOeEIWT5bEGFKHhxGkFdwk2vg5TZQNk5Rj_jo3hnfSLaFAYncG59dBjUkz1JE0Plq2d-GR1AbDs6P18VzOG_JrU\n
-        // CLOAK_CURRENT_KEY=cd38bcc4`}
         color="gray.700"
       />
       <Stack isInline display="flex">
