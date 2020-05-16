@@ -1,24 +1,19 @@
 {
-  "name": "@chiffre/template-website",
+  "name": "@47ng/cloak-ui",
   "version": "0.0.0-semantically-released",
-  "description": "Template website with Next.js & Chakra UI",
+  "description": "Companion web UI for @47ng/cloak",
   "main": "dist/index.js",
   "license": "MIT",
   "private": true,
   "author": {
     "name": "François Best",
-    "email": "francois.best@chiffre.io",
-    "url": "https://chiffre.io"
+    "email": "contact@francoisbest.com",
+    "url": "https://francoisbest.com"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/chiffre-io/template-website"
+    "url": "https://github.com/47ng/cloak-ui"
   },
-  "keywords": [
-    "chiffre",
-    "webapp",
-    "template"
-  ],
   "scripts": {
     "dev": "next",
     "test": "jest --coverage",
@@ -41,7 +36,6 @@
     "dayjs": "^1.8.27",
     "emotion-theming": "^10.0.27",
     "next": "^9.4.0",
-    "next-usequerystate": "^1.0.1",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-icons": "^3.10.0",
@@ -71,7 +65,7 @@
   "jest": {
     "verbose": true,
     "preset": "ts-jest/presets/js-with-ts",
-    "testEnvironment": "node"
+    "testEnvironment": "jsdom"
   },
   "prettier": {
     "arrowParens": "avoid",

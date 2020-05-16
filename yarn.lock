@@ -6635,11 +6635,6 @@ next-transpile-modules@^3.3.0:
     micromatch "^4.0.2"
     slash "^3.0.0"
 
-next-usequerystate@^1.0.1:
-  version "1.0.1"
-  resolved "https://registry.yarnpkg.com/next-usequerystate/-/next-usequerystate-1.0.1.tgz#8ea4d477dc5cabaeeff05f4acb17445d4b72955a"
-  integrity sha512-dURT23ScdB3TywPm3p6L2I9uiGOQVJ26RqOuT4+A2BRc9nj++XHI2invRfib1mCBcaebKQpUP4C/XAM6NM3Rzw==
-
 next@^9.4.0:
   version "9.4.0"
   resolved "https://registry.yarnpkg.com/next/-/next-9.4.0.tgz#7a3a8a4f1d1674b165998741c0b3826a1cce33d3"
