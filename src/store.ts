@@ -32,7 +32,9 @@ export const store = vegemite<EventMap, State>({
   masterKey: ''
 })
 
-store.listen(console.dir)
+if (process.env.NODE_ENV === 'development') {
+  store.listen(console.dir)
+}
 
 // --
 
