@@ -47,7 +47,7 @@
     "@mdx-js/loader": "^1.6.1",
     "@next/bundle-analyzer": "^9.4.1",
     "@next/mdx": "^9.4.1",
-    "@types/jest": "^25.2.2",
+    "@types/jest": "^25.2.3",
     "@types/node": "^14.0.1",
     "@types/react-table": "^7.0.17",
     "@zeit/next-source-maps": "^0.0.3",
