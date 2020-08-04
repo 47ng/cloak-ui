@@ -8129,10 +8129,10 @@ react-spring@^8.0.27:
     "@babel/runtime" "^7.3.1"
     prop-types "^15.5.8"
 
-react-table@^7.4.2:
-  version "7.4.2"
-  resolved "https://registry.yarnpkg.com/react-table/-/react-table-7.4.2.tgz#0f44179b39a4f43930723fb8f409746b305609aa"
-  integrity sha512-9uDsqxkML+smN456JlQBlHNRFy/MD1+Lcwaab5mYPRsxIMM51lr1+eAkQyZrgb1vyENUbAFdd32ShStCRuz1JA==
+react-table@^7.5.0:
+  version "7.5.0"
+  resolved "https://registry.yarnpkg.com/react-table/-/react-table-7.5.0.tgz#87326d92cdffbbf970f49b395bcafc3f84989ddf"
+  integrity sha512-hLsbNqLJkkYiATVteM8mthP8y5vnLPB2qdi9FeGZjsvb2m5vxj6cavIgk35oulvBmYD6Kox0HFfI332HPZpC7w==
 
 react@^16.13.1:
   version "16.13.1"
