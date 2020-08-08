@@ -2176,10 +2176,10 @@
   dependencies:
     "@types/react" "*"
 
-"@types/react-table@^7.0.20":
-  version "7.0.20"
-  resolved "https://registry.yarnpkg.com/@types/react-table/-/react-table-7.0.20.tgz#761f61dc21e69082ca9efaed64a227976fb30b01"
-  integrity sha512-oonZr35vV4mNNJ/QFhxpDuyn/y7wrIbzQcRotnMqI1nKLWoOmzAYb25OjWt/UJzCuKU6AJxzNmeDYgGqvIZItg==
+"@types/react-table@^7.0.21":
+  version "7.0.21"
+  resolved "https://registry.yarnpkg.com/@types/react-table/-/react-table-7.0.21.tgz#d236bb1a8addf7a6969ceb8c9a9b2988e7e95b40"
+  integrity sha512-7k5iy0HiejewXlu9g8rUAIRijo07aa5S11uz5jiPwEu9xr5JAtpAyBuTr/8lHQHCA3EzdVgYO//FgrTxsi6jEQ==
   dependencies:
     "@types/react" "*"
 
