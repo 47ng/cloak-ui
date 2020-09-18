@@ -48,7 +48,7 @@
     "@next/bundle-analyzer": "^9.5.3",
     "@next/mdx": "^9.5.2",
     "@types/jest": "^26.0.14",
-    "@types/node": "^14.10.2",
+    "@types/node": "^14.11.1",
     "@types/react-table": "^7.0.23",
     "@zeit/next-source-maps": "^0.0.3",
     "commitlint": "^11.0.0",
