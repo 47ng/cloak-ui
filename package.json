@@ -45,7 +45,7 @@
   "devDependencies": {
     "@commitlint/config-conventional": "^11.0.0",
     "@mdx-js/loader": "^1.6.17",
-    "@next/bundle-analyzer": "^9.5.3",
+    "@next/bundle-analyzer": "^9.5.4",
     "@next/mdx": "^9.5.4",
     "@types/jest": "^26.0.14",
     "@types/node": "^14.11.5",
