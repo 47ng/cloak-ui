@@ -37,7 +37,7 @@
     "emotion-theming": "^10.0.27",
     "next": "^9.5.2",
     "react": "^16.14.0",
-    "react-dom": "^16.13.1",
+    "react-dom": "^16.14.0",
     "react-icons": "^3.11.0",
     "react-table": "^7.5.2",
     "vegemite": "^1.0.0"
