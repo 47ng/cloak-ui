@@ -1961,10 +1961,10 @@
   resolved "https://registry.yarnpkg.com/@next/env/-/env-9.5.5.tgz#db993649ec6e619e34a36de90dc2baa52fc5280f"
   integrity sha512-N9wdjU6XoqLqNQWtrGiWtp1SUuJsYK1cNrZ24A6YD+4w5CNV5SkZX6aewKZCCLP5Y8UNfTij2FkJiSYUfBjX8g==
 
-"@next/mdx@^9.5.4":
-  version "9.5.4"
-  resolved "https://registry.yarnpkg.com/@next/mdx/-/mdx-9.5.4.tgz#067102d1e84917b0e3a89ea9797d09d774d8b7fa"
-  integrity sha512-Fu8W3FeBomD0xoHBB34/w+N3Tv6sC99lSrBcQCl2wlstOcuuleTm3QqDhLWF0lnQjkIRcMSsDREBTVEn7dtTSQ==
+"@next/mdx@^10.0.0":
+  version "10.0.0"
+  resolved "https://registry.yarnpkg.com/@next/mdx/-/mdx-10.0.0.tgz#985ecd32d13e3595d2b9c423cae8c673b2cae5db"
+  integrity sha512-QSXaLs1HZhqaREhgdTlTmW4KQNS9uvbu0OUTLzk3KGfDPlRocdgChA32BOuy2m1rp60uLibYxQIZ7JjI6vqH/w==
 
 "@next/polyfill-module@9.5.5":
   version "9.5.5"
