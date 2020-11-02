@@ -29,7 +29,7 @@
     "@47ng/cloak": "^1.0.0",
     "@47ng/codec": "^1.0.0",
     "@chakra-ui/core": "^0.8.0",
-    "@emotion/core": "^10.1.0",
+    "@emotion/core": "^10.1.1",
     "@emotion/styled": "^10.0.27",
     "@sentry/browser": "^5.27.2",
     "@sentry/integrations": "^5.27.2",
