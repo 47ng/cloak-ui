@@ -35,7 +35,7 @@
     "@sentry/integrations": "^5.29.0",
     "dayjs": "^1.9.7",
     "emotion-theming": "^10.0.27",
-    "next": "^10.0.3",
+    "next": "^10.0.4",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
     "react-icons": "^3.11.0",
