@@ -33,7 +33,7 @@
     "@emotion/styled": "^10.0.27",
     "@sentry/browser": "^5.29.0",
     "@sentry/integrations": "^5.29.0",
-    "dayjs": "^1.10.0",
+    "dayjs": "^1.10.1",
     "emotion-theming": "^10.0.27",
     "next": "^10.0.4",
     "react": "^17.0.1",
