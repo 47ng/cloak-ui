@@ -31,7 +31,7 @@
     "@chakra-ui/core": "^0.8.0",
     "@emotion/core": "^10.1.1",
     "@emotion/styled": "^10.0.27",
-    "@sentry/browser": "^5.29.0",
+    "@sentry/browser": "^6.0.2",
     "@sentry/integrations": "^5.29.0",
     "dayjs": "^1.10.4",
     "emotion-theming": "^10.0.27",
