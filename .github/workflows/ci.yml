@@ -41,6 +41,7 @@ jobs:
         if: ${{ failure() }}
         with:
           status: ${{ job.status }}
+          fields: repo,message,commit,action,eventName,ref,took
           author_name: Continuous Integration
         env:
           SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
