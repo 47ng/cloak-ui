@@ -1,10 +1,14 @@
 import React from 'react'
-import Text from '@chakra-ui/core/dist/Text'
-import Textarea from '@chakra-ui/core/dist/Textarea'
-import Stack, { StackProps } from '@chakra-ui/core/dist/Stack'
-import { useTheme } from '@chakra-ui/core/dist/ThemeProvider'
-import Button from '@chakra-ui/core/dist/Button'
+import {
+  Text,
+  Textarea,
+  Stack,
+  StackProps,
+  useTheme,
+  Button
+} from '@chakra-ui/react'
 import { store } from 'src/store'
+import { FiCopy, FiPlus, FiRefreshCw } from 'react-icons/fi'
 
 export interface EnvVarViewProps extends StackProps {}
 
@@ -24,8 +28,8 @@ export const EnvVarView: React.FC<EnvVarViewProps> = ({ ...props }) => {
       <Stack isInline display="flex">
         <Button
           size="sm"
-          leftIcon="add"
-          variantColor="green"
+          leftIcon={<FiPlus />}
+          colorScheme="green"
           variant="ghost"
           onClick={() => store.dispatch('resetKeychain', null)}
         >
@@ -33,14 +37,14 @@ export const EnvVarView: React.FC<EnvVarViewProps> = ({ ...props }) => {
         </Button>
         <Button
           size="sm"
-          leftIcon="repeat"
-          variantColor="indigo"
+          leftIcon={<FiRefreshCw />}
+          colorScheme="indigo"
           variant="ghost"
           onClick={() => store.dispatch('rotateMasterKey', null)}
         >
           Rotate Master Key
         </Button>
-        <Button size="sm" ml="auto" leftIcon="copy" variantColor="blue">
+        <Button size="sm" ml="auto" leftIcon={<FiCopy />} colorScheme="blue">
           Copy
         </Button>
       </Stack>

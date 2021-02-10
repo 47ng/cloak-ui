@@ -1,20 +1,23 @@
 import React from 'react'
 import dayjs from 'dayjs'
 import relativeTime from 'dayjs/plugin/relativeTime'
-import Badge from '@chakra-ui/core/dist/Badge'
-import Box from '@chakra-ui/core/dist/Box'
-import Button from '@chakra-ui/core/dist/Button'
-import Flex from '@chakra-ui/core/dist/Flex'
-import Grid from '@chakra-ui/core/dist/Grid'
-import IconButton from '@chakra-ui/core/dist/IconButton'
-import Radio from '@chakra-ui/core/dist/Radio'
-import Stack, { StackProps } from '@chakra-ui/core/dist/Stack'
-import Text from '@chakra-ui/core/dist/Text'
-import { useTheme } from '@chakra-ui/core/dist/ThemeProvider'
+import {
+  Badge,
+  Box,
+  Button,
+  Flex,
+  Grid,
+  IconButton,
+  Stack,
+  StackProps,
+  Radio,
+  Text,
+  useTheme,
+  Heading
+} from '@chakra-ui/react'
 import { FiTrash2, FiUpload, FiPlus } from 'react-icons/fi'
 import { Key } from 'src/types'
 import { ImportKeyPopover } from './ImportKeyPopover'
-import Heading from '@chakra-ui/core/dist/Heading'
 
 dayjs.extend(relativeTime)
 
@@ -39,24 +42,24 @@ export const TableView: React.FC<TableViewProps> = ({
   return (
     <Stack spacing={4}>
       <Stack isInline display="flex">
-        <Heading as="h2" fontSize="lg" fontWeight="semibold" color="gray.800">
+        <Heading
+          as="h2"
+          fontSize="lg"
+          fontWeight="semibold"
+          color="gray.800"
+          mr="auto"
+        >
           Keychain
         </Heading>
         <ImportKeyPopover onSubmit={onImportKey}>
-          <Button
-            size="sm"
-            leftIcon={FiUpload}
-            variant="ghost"
-            ml="auto"
-            mr={2}
-          >
+          <Button size="sm" leftIcon={<FiUpload />} variant="ghost" mr={2}>
             Import key
           </Button>
         </ImportKeyPopover>
         <Button
           size="sm"
-          leftIcon={FiPlus}
-          variantColor="green"
+          leftIcon={<FiPlus />}
+          colorScheme="green"
           onClick={onNewKey}
         >
           New key
@@ -134,7 +137,7 @@ const Row: React.FC<RowProps> = ({
       <Flex alignItems="center" justifyContent="center">
         <Radio
           size="sm"
-          variantColor="indigo"
+          colorScheme="indigo"
           isChecked={isCurrent}
           onClick={() => onSetCurrent(fingerprint)}
         />
@@ -171,7 +174,7 @@ const Row: React.FC<RowProps> = ({
       <Flex justifyContent="center" alignItems="center">
         <IconButton
           aria-label="Delete"
-          icon={FiTrash2}
+          icon={<FiTrash2 />}
           variant="ghost"
           size="xs"
           onClick={() => onDelete(fingerprint)}

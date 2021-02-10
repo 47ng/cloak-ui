@@ -1,9 +1,9 @@
 import React from 'react'
-import Text from '@chakra-ui/core/dist/Text'
-import Stack from '@chakra-ui/core/dist/Stack'
-import Input from '@chakra-ui/core/dist/Input'
-import Button from '@chakra-ui/core/dist/Button'
 import {
+  Text,
+  Stack,
+  Input,
+  Button,
   Popover,
   PopoverTrigger,
   PopoverContent,
@@ -13,7 +13,8 @@ import {
   PopoverArrow,
   PopoverCloseButton,
   PopoverProps
-} from '@chakra-ui/core/dist/Popover'
+} from '@chakra-ui/react'
+import { FiPlus } from 'react-icons/fi'
 
 export type ImportKeyPopoverProps = PopoverProps & {
   onSubmit: (key: string) => Promise<void>
@@ -77,8 +78,8 @@ export const ImportKeyPopover: React.FC<ImportKeyPopoverProps> = ({
                     type="submit"
                     ml="auto"
                     size="sm"
-                    variantColor="green"
-                    leftIcon="add"
+                    colorScheme="green"
+                    leftIcon={<FiPlus />}
                   >
                     Add key
                   </Button>

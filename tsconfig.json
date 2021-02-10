@@ -3,6 +3,7 @@
     "baseUrl": ".",
     "target": "esnext",
     "lib": ["DOM"],
+    "types": ["@types/webpack", "@types/jest"],
     "module": "esnext",
     "declaration": true,
     "outDir": "./dist",

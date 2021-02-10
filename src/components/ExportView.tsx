@@ -1,13 +1,16 @@
 import React from 'react'
-import Stack, { StackProps } from '@chakra-ui/core/dist/Stack'
-import Heading from '@chakra-ui/core/dist/Heading'
-import Input from '@chakra-ui/core/dist/Input'
-import Button from '@chakra-ui/core/dist/Button'
-import useClipboard from '@chakra-ui/core/dist/useClipboard'
+import {
+  Stack,
+  StackProps,
+  Heading,
+  Input,
+  Button,
+  useClipboard,
+  useTheme,
+  Box
+} from '@chakra-ui/react'
 import { State, saveToEnv, getHashUrl } from 'src/store'
-import { useTheme } from '@chakra-ui/core/dist/ThemeProvider'
-import Box from '@chakra-ui/core/dist/Box'
-import { FiShare2, FiLock } from 'react-icons/fi'
+import { FiShare2, FiLock, FiRefreshCw, FiCheck, FiCopy } from 'react-icons/fi'
 
 export interface ExportViewProps extends StackProps {
   state: State
@@ -39,7 +42,7 @@ export const ExportView: React.FC<ExportViewProps> = ({
       <Heading as="h3" fontSize="md" fontWeight="semibold" color="gray.800">
         <Box
           as={FiLock}
-          size={4}
+          boxSize={4}
           d="inline-block"
           mr={2}
           mt={-1}
@@ -58,25 +61,25 @@ export const ExportView: React.FC<ExportViewProps> = ({
       />
       <Button
         size="xs"
-        leftIcon="repeat"
+        leftIcon={<FiRefreshCw />}
         onClick={onRotateMasterKey}
         variant="ghost"
+        mr="auto"
       >
         Rotate
       </Button>
       <Button
         variant="ghost"
-        ml="auto"
         size="sm"
-        leftIcon={hasCopiedUrl ? 'check' : FiShare2}
+        leftIcon={hasCopiedUrl ? <FiCheck /> : <FiShare2 />}
         onClick={onCopyUrl}
       >
         {hasCopiedUrl ? 'URL copied' : 'Share'}
       </Button>
       <Button
         size="sm"
-        leftIcon={hasCopiedEnv ? 'check' : 'copy'}
-        variantColor="blue"
+        leftIcon={hasCopiedEnv ? <FiCheck /> : <FiCopy />}
+        colorScheme="blue"
         onClick={onCopyEnv}
       >
         {hasCopiedEnv ? 'Copied' : 'Export'}

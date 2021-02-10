@@ -1,17 +1,24 @@
 import React from 'react'
-import Flex, { FlexProps } from '@chakra-ui/core/dist/Flex'
-import Box from '@chakra-ui/core/dist/Box'
-import Text from '@chakra-ui/core/dist/Text'
-import Stack from '@chakra-ui/core/dist/Stack'
-import Image from '@chakra-ui/core/dist/Image'
+import {
+  Flex,
+  FlexProps,
+  Box,
+  Text,
+  Stack,
+  Image,
+  Heading,
+  Icon,
+  IconButton,
+  useColorMode
+} from '@chakra-ui/react'
 import { OutgoingLink } from '@47ng/chakra-next'
-import Heading from '@chakra-ui/core/dist/Heading'
-import Icon from '@chakra-ui/core/dist/Icon'
-import { FiGithub } from 'react-icons/fi'
+import { FiGithub, FiMoon, FiSun } from 'react-icons/fi'
 
 export interface HeaderProps extends FlexProps {}
 
 export const Header: React.FC<HeaderProps> = ({ ...props }) => {
+  const { colorMode, toggleColorMode } = useColorMode()
+
   return (
     <Flex
       as="header"
@@ -20,7 +27,7 @@ export const Header: React.FC<HeaderProps> = ({ ...props }) => {
       {...props}
     >
       <Stack isInline spacing={4}>
-        <Image src="/logo.png" alt="Gold key emoji" size={12} />
+        <Image src="/logo.png" alt="Gold key emoji" boxSize={12} />
         <Box>
           <Heading as="h1" fontSize="xl" fontWeight="bold">
             Cloak UI
@@ -30,7 +37,7 @@ export const Header: React.FC<HeaderProps> = ({ ...props }) => {
           </Text>
         </Box>
       </Stack>
-      <Stack as="nav" isInline fontWeight="medium" spacing={12}>
+      <Stack as="nav" isInline fontWeight="medium" spacing={4}>
         <OutgoingLink
           href="https://github.com/47ng/cloak"
           display="inline-flex"
@@ -39,6 +46,13 @@ export const Header: React.FC<HeaderProps> = ({ ...props }) => {
           <Icon as={FiGithub} mr={2} />
           GitHub
         </OutgoingLink>
+        <IconButton
+          variant="ghost"
+          aria-label={colorMode === 'dark' ? 'Dark Mode' : 'Light Mode'}
+          icon={colorMode === 'dark' ? <FiMoon /> : <FiSun />}
+          isRound
+          onMouseDown={toggleColorMode}
+        />
       </Stack>
     </Flex>
   )

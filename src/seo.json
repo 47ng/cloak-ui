@@ -1,0 +1,22 @@
+{
+  "title": "Cloak UI",
+  "description": "Companion web UI for @47ng/cloak",
+  "additionalMetaTags": [{ "property": "author", "content": "François Best" }],
+  "twitter": {
+    "cardType": "summary_large_image",
+    "handle": "fortysevenfx",
+    "site": "fortysevenfx"
+  },
+  "openGraph": {
+    "type": "website",
+    "locale": "en-GB",
+    "site_name": "Cloak UI",
+    "images": [
+      {
+        "url": "https://usefoggy.vercel.app/api/og?url=https://www.figma.com/file/LCzKwbepwQ5MaPwDJ8FCUsRo/francoisbest.com?node-id=612%3A15",
+        "width": 1280,
+        "height": 720
+      }
+    ]
+  }
+}
