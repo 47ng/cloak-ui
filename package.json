@@ -28,7 +28,7 @@
     "@47ng/chakra-next": "^3.0.0-beta.4",
     "@47ng/cloak": "^1.0.1",
     "@47ng/codec": "^1.0.1",
-    "@chakra-ui/react": "^1.3.2",
+    "@chakra-ui/react": "^1.6.7",
     "@emotion/react": "^11.1.5",
     "@emotion/styled": "^11.1.5",
     "@sentry/browser": "^6.1.0",
