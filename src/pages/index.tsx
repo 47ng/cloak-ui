@@ -31,6 +31,7 @@ const IndexPage: NextPage = () => {
           </Text>
           <Card
             as="section"
+            px={0}
             borderWidth="1px"
             borderStartWidth={{ base: 0, sm: '1px' }}
             borderEndWidth={{ base: 0, sm: '1px' }}
@@ -45,6 +46,9 @@ const IndexPage: NextPage = () => {
               }
               onSetCurrentKey={fingerprint =>
                 store.dispatch('selectCurrentKey', fingerprint)
+              }
+              onEditKeyLabel={(fingerprint, label) =>
+                store.dispatch('editKeyLabel', { fingerprint, label })
               }
               onNewKey={() => store.dispatch('createKey', null)}
               onImportKey={key => store.dispatch('importKey', key)}

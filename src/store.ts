@@ -1,15 +1,15 @@
-import React from 'react'
-import { b64, utf8 } from '@47ng/codec'
-import vegemite from 'vegemite'
-import { Key } from './types'
 import {
+  CloakKeychain,
+  exportKeychain,
   generateKey,
   importKeychain,
-  serializeKey,
   parseKey,
-  CloakKeychain,
-  exportKeychain
+  serializeKey
 } from '@47ng/cloak'
+import { b64, utf8 } from '@47ng/codec'
+import React from 'react'
+import vegemite from 'vegemite'
+import { Key } from './types'
 
 export interface State {
   keys: Key[]
@@ -25,6 +25,7 @@ export interface EventMap {
   importKey: string
   deleteKey: string
   selectCurrentKey: string
+  editKeyLabel: { fingerprint: string; label: string }
 }
 
 export const store = vegemite<EventMap, State>({
@@ -49,7 +50,6 @@ store.on('resetKeychain', state => {
 })
 
 store.on('rotateMasterKey', state => {
-  console.dir('rotate')
   state.masterKey = generateKey()
 })
 
@@ -87,6 +87,16 @@ store.on('deleteKey', (state, deletedKeyFingerprint) => {
 
 store.on('selectCurrentKey', (state, currentKeyFingerprint) => {
   state.currentKeyFingerprint = currentKeyFingerprint
+})
+
+store.on('editKeyLabel', (state, { fingerprint, label }) => {
+  const keyIndex = state.keys.findIndex(
+    key => key.parsed.fingerprint === fingerprint
+  )
+  if (keyIndex < 0) {
+    return
+  }
+  state.keys[keyIndex].label = label
 })
 
 // --
@@ -142,7 +152,8 @@ export async function loadFromEnv(env: string): Promise<State | null> {
     keys.push({
       parsed: entry.key,
       serialized: await serializeKey(entry.key),
-      createdAt: unlockedKeychain[fingerprint].createdAt
+      createdAt: unlockedKeychain[fingerprint].createdAt,
+      label: entry.label
     })
   }
   return {
@@ -158,7 +169,8 @@ export async function saveToEnv(state: State): Promise<string> {
       ...k,
       [key.parsed.fingerprint]: {
         key: key.parsed,
-        createdAt: key.createdAt
+        createdAt: key.createdAt,
+        label: key.label
       }
     }),
     {}

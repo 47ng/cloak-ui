@@ -1,19 +1,30 @@
 import {
   Box,
   Button,
-  Flex,
-  FlexProps,
-  Heading,
+  FormControl,
+  FormLabel,
   Input,
+  InputGroup,
+  InputRightElement,
+  Stack,
+  StackProps,
+  Textarea,
   useClipboard,
   useColorModeValue,
   useTheme
 } from '@chakra-ui/react'
 import React from 'react'
-import { FiCheck, FiCopy, FiLock, FiRefreshCw, FiShare2 } from 'react-icons/fi'
+import {
+  FiCheck,
+  FiCode,
+  FiCopy,
+  FiLink,
+  FiLock,
+  FiRefreshCw
+} from 'react-icons/fi'
 import { getHashUrl, saveToEnv, State } from 'src/store'
 
-export interface ExportViewProps extends FlexProps {
+export interface ExportViewProps extends StackProps {
   state: State
   onRotateMasterKey: () => void
 }
@@ -39,57 +50,96 @@ export const ExportView: React.FC<ExportViewProps> = ({
   const { onCopy: onCopyUrl, hasCopied: hasCopiedUrl } = useClipboard(url)
 
   return (
-    <Flex alignItems="center" flexWrap="wrap" gap={2} {...props}>
-      <Heading
-        as="h3"
-        fontSize="md"
-        fontWeight="semibold"
-        color={useColorModeValue('gray.800', 'gray.300')}
-      >
-        <Box
-          as={FiLock}
-          boxSize={4}
-          d="inline-block"
-          mr={2}
-          mt={-1}
-          color={useColorModeValue('gray.600', 'gray.500')}
-        />
-        Master Key
-      </Heading>
-      <Input
-        ml={1}
-        w="md"
-        size="sm"
-        value={state.masterKey}
-        fontFamily={theme.fonts.mono}
-        fontSize="xs"
-        isReadOnly
-      />
-      <Button
-        size="xs"
-        leftIcon={<FiRefreshCw />}
-        onClick={onRotateMasterKey}
-        variant="ghost"
-        mr="auto"
-      >
-        Rotate
-      </Button>
-      <Button
-        variant="ghost"
-        size="sm"
-        leftIcon={hasCopiedUrl ? <FiCheck /> : <FiShare2 />}
-        onClick={onCopyUrl}
-      >
-        {hasCopiedUrl ? 'URL copied' : 'Share'}
-      </Button>
-      <Button
-        size="sm"
-        leftIcon={hasCopiedEnv ? <FiCheck /> : <FiCopy />}
-        colorScheme="blue"
-        onClick={onCopyEnv}
-      >
-        {hasCopiedEnv ? 'Copied' : 'Export'}
-      </Button>
-    </Flex>
+    <Stack spacing={6} {...props}>
+      <FormControl>
+        <FormLabel d="flex" alignItems="center">
+          <Box
+            as={FiLock}
+            boxSize={4}
+            d="inline-block"
+            mr={2}
+            color={useColorModeValue('gray.600', 'gray.500')}
+          />{' '}
+          Master Key
+        </FormLabel>
+        <InputGroup size="sm">
+          <Input
+            rounded="md"
+            value={state.masterKey}
+            fontFamily={theme.fonts.mono}
+            fontSize="xs"
+            isReadOnly
+          />
+          <InputRightElement w="5rem">
+            <Button
+              size="xs"
+              leftIcon={<FiRefreshCw />}
+              onClick={onRotateMasterKey}
+              mr="auto"
+            >
+              Rotate
+            </Button>
+          </InputRightElement>
+        </InputGroup>
+      </FormControl>
+      <FormControl>
+        <FormLabel d="flex" alignItems="center">
+          <Box
+            as={FiLink}
+            boxSize={4}
+            d="inline-block"
+            mr={2}
+            color={useColorModeValue('gray.600', 'gray.500')}
+          />{' '}
+          Sharing URL
+        </FormLabel>
+        <InputGroup size="sm">
+          <Input rounded="md" value={url} isReadOnly />
+          <InputRightElement w="4.5rem">
+            <Button
+              leftIcon={hasCopiedUrl ? <FiCheck /> : <FiCopy />}
+              size="xs"
+              aria-label="Copy URL"
+              onClick={onCopyUrl}
+            >
+              Copy
+            </Button>
+          </InputRightElement>
+        </InputGroup>
+      </FormControl>
+      <FormControl>
+        <FormLabel d="flex" alignItems="center">
+          <Box
+            as={FiCode}
+            boxSize={4}
+            d="inline-block"
+            mr={2}
+            color={useColorModeValue('gray.600', 'gray.500')}
+          />{' '}
+          Environment Variables
+        </FormLabel>
+        <InputGroup size="sm">
+          <Textarea
+            rounded="md"
+            value={env}
+            isReadOnly
+            resize="vertical"
+            fontFamily="mono"
+            fontSize="xs"
+            rows={2}
+          />
+          <InputRightElement w="4.5rem">
+            <Button
+              leftIcon={hasCopiedEnv ? <FiCheck /> : <FiCopy />}
+              size="xs"
+              aria-label="Copy environment variables"
+              onClick={onCopyEnv}
+            >
+              Copy
+            </Button>
+          </InputRightElement>
+        </InputGroup>
+      </FormControl>
+    </Stack>
   )
 }

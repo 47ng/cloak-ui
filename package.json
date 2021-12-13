@@ -25,7 +25,7 @@
   },
   "dependencies": {
     "@47ng/chakra-next": "^3.0.0-beta.4",
-    "@47ng/cloak": "^1.1.0-beta.2",
+    "@47ng/cloak": "^1.1.0",
     "@47ng/codec": "^1.0.1",
     "@chakra-ui/react": "^1.7.3",
     "@emotion/react": "^11.7.1",

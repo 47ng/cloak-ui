@@ -1,34 +1,26 @@
 import {
-  Badge,
-  Box,
   Button,
   Flex,
-  Grid,
   Heading,
-  IconButton,
-  Radio,
   Spacer,
   Stack,
+  StackDivider,
   StackProps,
-  Text,
   useBreakpointValue,
-  useColorModeValue,
-  useTheme
+  useColorModeValue
 } from '@chakra-ui/react'
-import dayjs from 'dayjs'
-import relativeTime from 'dayjs/plugin/relativeTime'
 import React from 'react'
-import { FiPlus, FiTrash2, FiUpload } from 'react-icons/fi'
+import { FiPlus, FiUpload } from 'react-icons/fi'
 import { Key } from 'src/types'
 import { ImportKeyPopover } from './ImportKeyPopover'
-
-dayjs.extend(relativeTime)
+import { KeyCard, KeyCardProps } from './KeyCard'
 
 export interface TableViewProps extends StackProps {
   keys: Key[]
   currentKeyFingerprint?: string
-  onSetCurrentKey: RowProps['onSetCurrent']
-  onDeleteKey: RowProps['onDelete']
+  onSetCurrentKey: KeyCardProps['onSetCurrent']
+  onDeleteKey: KeyCardProps['onDelete']
+  onEditKeyLabel: KeyCardProps['onEditLabel']
   onImportKey: (key: string) => Promise<void>
   onNewKey: () => void
 }
@@ -38,18 +30,20 @@ export const TableView: React.FC<TableViewProps> = ({
   currentKeyFingerprint,
   onSetCurrentKey,
   onDeleteKey,
+  onEditKeyLabel,
   onImportKey,
   onNewKey,
   ...props
 }) => {
   const buttonSize = useBreakpointValue({ base: 'md', sm: 'sm' })
   return (
-    <Stack spacing={4}>
+    <Stack spacing={4} {...props}>
       <Flex
         as="header"
         flexDirection={{ base: 'column', sm: 'row' }}
         alignItems="baseline"
         rowGap={2}
+        px={4}
       >
         <Heading
           as="h2"
@@ -83,36 +77,32 @@ export const TableView: React.FC<TableViewProps> = ({
         </Flex>
       </Flex>
       {keys.length > 0 ? (
-        <Grid templateColumns="4rem 6rem 4fr 1fr 2rem" {...props} gridGap={2}>
-          <>
-            <Text fontSize="sm" fontWeight="semibold" textAlign="center">
-              Current
-            </Text>
-            <Text fontSize="sm" fontWeight="semibold" textAlign="center">
-              Fingerprint
-            </Text>
-            <Text fontSize="sm" fontWeight="semibold" textAlign="left">
-              Key
-            </Text>
-            <Text fontSize="sm" fontWeight="semibold" textAlign="right">
-              Created
-            </Text>
-            <Box />
-          </>
+        <Stack
+          spacing={8}
+          py={4}
+          divider={
+            <StackDivider
+              borderColor={useColorModeValue('gray.300', 'gray.800')}
+            />
+          }
+        >
           {keys
             .sort((a, b) => b.createdAt - a.createdAt)
-            .map(({ serialized, parsed, createdAt }) => (
-              <Row
+            .map(({ serialized, parsed, createdAt, label }) => (
+              <KeyCard
+                px={4}
                 key={serialized}
                 serialized={serialized}
                 fingerprint={parsed.fingerprint}
                 createdAt={createdAt}
+                label={label}
                 onDelete={onDeleteKey}
                 onSetCurrent={onSetCurrentKey}
+                onEditLabel={onEditKeyLabel}
                 isCurrent={parsed.fingerprint === currentKeyFingerprint}
               />
             ))}
-        </Grid>
+        </Stack>
       ) : (
         <Flex
           alignItems="center"
@@ -126,79 +116,5 @@ export const TableView: React.FC<TableViewProps> = ({
         </Flex>
       )}
     </Stack>
-  )
-}
-
-// --
-
-interface RowProps {
-  isCurrent: boolean
-  serialized: string
-  fingerprint: string
-  createdAt: number
-  onSetCurrent: (fingerprint: string) => void
-  onDelete: (fingerprint: string) => void
-}
-
-const Row: React.FC<RowProps> = ({
-  isCurrent,
-  serialized,
-  fingerprint,
-  createdAt,
-  onSetCurrent,
-  onDelete
-}) => {
-  const theme = useTheme()
-  return (
-    <>
-      <Flex alignItems="center" justifyContent="center">
-        <Radio
-          size="sm"
-          colorScheme="indigo"
-          isChecked={isCurrent}
-          onClick={() => onSetCurrent(fingerprint)}
-        />
-      </Flex>
-      <Flex
-        alignItems="center"
-        justifyContent="center"
-        fontFamily={theme.fonts.mono}
-        fontSize="xs"
-        fontWeight="semibold"
-      >
-        <Badge
-          borderRadius="3px"
-          textTransform="lowercase"
-          fontWeight="semibold"
-          fontFamily={theme.fonts.mono}
-          variant="subtle"
-          color="gray.700"
-        >
-          {fingerprint}
-        </Badge>
-      </Flex>
-      <Flex alignItems="center" fontFamily={theme.fonts.mono} fontSize="xs">
-        {serialized}
-      </Flex>
-      <Flex
-        fontSize="xs"
-        justifyContent="flex-end"
-        alignItems="center"
-        color="gray.600"
-      >
-        {dayjs(createdAt).fromNow()}
-      </Flex>
-      <Flex justifyContent="center" alignItems="center">
-        <IconButton
-          aria-label="Delete"
-          icon={<FiTrash2 />}
-          variant="ghost"
-          size="xs"
-          onClick={() => onDelete(fingerprint)}
-        >
-          Delete
-        </IconButton>
-      </Flex>
-    </>
   )
 }

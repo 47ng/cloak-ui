@@ -4,4 +4,5 @@ export interface Key {
   parsed: ParsedCloakKey
   serialized: string
   createdAt: number
+  label?: string
 }

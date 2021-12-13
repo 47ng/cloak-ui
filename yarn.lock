@@ -7,10 +7,10 @@
   resolved "https://registry.yarnpkg.com/@47ng/chakra-next/-/chakra-next-3.0.0-beta.4.tgz#a2e71a6eb68912e9378a3493d48af4c5258a7108"
   integrity sha512-3z+w8CsjDogLW+9SQ95uKXz8cgqR95Thhy5Wqhl0wOV2RU63roN+aXrI5EhpuBcA6TBnD5IFXVJeiFcJUWLh1Q==
 
-"@47ng/cloak@^1.1.0-beta.2":
-  version "1.1.0-beta.2"
-  resolved "https://registry.yarnpkg.com/@47ng/cloak/-/cloak-1.1.0-beta.2.tgz#e1e5d1af7f6a729ba3005f4b7f9a69f068b692e3"
-  integrity sha512-FRKqGToOalYRJs37d1G/bKB1HhE0UlgIm14QEIRe3CzuXoOlUTc3xKNjdbnrf0wGDxmzzPx7na+OA4WCmsanEQ==
+"@47ng/cloak@^1.1.0":
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/@47ng/cloak/-/cloak-1.1.0.tgz#4172ea63287d3c28aef3ac361fbe313d55647204"
+  integrity sha512-47dVSPgjTiH3Fgt2CATudxJAU7Fv1WjFIo2e4tXG2UcQitqmIGf9GCgv1MnGv8ctNGPAy9gsjHnNujzuZ1bOow==
   dependencies:
     "@47ng/codec" "^1.0.1"
     "@stablelib/base64" "^1.0.1"
