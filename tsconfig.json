@@ -2,8 +2,13 @@
   "compilerOptions": {
     "baseUrl": ".",
     "target": "esnext",
-    "lib": ["DOM"],
-    "types": ["@types/webpack", "@types/jest"],
+    "lib": [
+      "DOM"
+    ],
+    "types": [
+      "@types/webpack",
+      "@types/jest"
+    ],
     "module": "esnext",
     "declaration": true,
     "outDir": "./dist",
@@ -29,8 +34,16 @@
     "moduleResolution": "node",
     "resolveJsonModule": true,
     "isolatedModules": true,
-    "jsx": "preserve"
+    "jsx": "preserve",
+    "incremental": true
   },
-  "include": ["./src/**/*.ts", "./src/**/*.tsx"],
-  "exclude": ["./src/**/*.test.ts", "./dist", "./node_modules"]
+  "include": [
+    "./src/**/*.ts",
+    "./src/**/*.tsx"
+  ],
+  "exclude": [
+    "./src/**/*.test.ts",
+    "./dist",
+    "./node_modules"
+  ]
 }
