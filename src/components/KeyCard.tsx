@@ -1,7 +1,6 @@
 import {
   Badge,
   Box,
-  Button,
   Editable,
   EditableInput,
   EditablePreview,
@@ -13,18 +12,17 @@ import {
   InputLeftElement,
   InputRightElement,
   Radio,
-  Spacer,
   Stack,
   StackProps,
   Text,
-  useClipboard,
   useColorModeValue
 } from '@chakra-ui/react'
 import dayjs from 'dayjs'
 import relativeTime from 'dayjs/plugin/relativeTime'
 import React from 'react'
-import { FiCheck, FiCopy, FiTrash2 } from 'react-icons/fi'
+import { FiTrash2 } from 'react-icons/fi'
 import { IoKey } from 'react-icons/io5'
+import { CopyFieldButton } from './CopyFieldButton'
 
 dayjs.extend(relativeTime)
 
@@ -54,7 +52,6 @@ export const KeyCard = forwardRef<KeyCardProps, 'div'>(
     },
     ref
   ) => {
-    const { onCopy, hasCopied } = useClipboard(serialized)
     return (
       <Stack ref={ref} {...props}>
         <InputGroup size="sm">
@@ -63,22 +60,15 @@ export const KeyCard = forwardRef<KeyCardProps, 'div'>(
           </InputLeftElement>
           <Input isReadOnly value={serialized} fontFamily="mono" rounded="md" />
           <InputRightElement w="4.5rem">
-            <Button
-              leftIcon={hasCopied ? <FiCheck /> : <FiCopy />}
-              size="xs"
-              aria-label="Copy"
-              onClick={onCopy}
-            >
-              Copy
-            </Button>
+            <CopyFieldButton value={serialized} size="xs" />
           </InputRightElement>
         </InputGroup>
-        <Flex alignItems="center" gap={2}>
+        <Flex alignItems="center" gap={2} flexWrap="wrap">
           <Badge
             px={1.5}
             rounded="md"
             textTransform="lowercase"
-            fontWeight={isCurrent ? 'semibold' : 'normal'}
+            fontWeight="normal"
             fontFamily="mono"
             colorScheme={isCurrent ? 'indigo' : 'gray'}
           >
@@ -88,12 +78,15 @@ export const KeyCard = forwardRef<KeyCardProps, 'div'>(
             size="sm"
             colorScheme="indigo"
             isChecked={isCurrent}
-            onClick={() => onSetCurrent(fingerprint)}
+            onChange={e => {
+              if (e.target.checked) {
+                onSetCurrent(fingerprint)
+              }
+            }}
           >
             Use for encryption
           </Radio>
-          <Spacer />
-          <Text fontSize="xs" color="gray.600">
+          <Text fontSize="xs" color="gray.600" ml="auto">
             Added {dayjs(createdAt).fromNow()}
           </Text>
           <IconButton

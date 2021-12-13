@@ -9,20 +9,13 @@ import {
   Stack,
   StackProps,
   Textarea,
-  useClipboard,
   useColorModeValue,
   useTheme
 } from '@chakra-ui/react'
 import React from 'react'
-import {
-  FiCheck,
-  FiCode,
-  FiCopy,
-  FiLink,
-  FiLock,
-  FiRefreshCw
-} from 'react-icons/fi'
+import { FiCode, FiLink, FiLock, FiRefreshCw } from 'react-icons/fi'
 import { getHashUrl, saveToEnv, State } from 'src/store'
+import { CopyFieldButton, useFieldActionButtonProps } from './CopyFieldButton'
 
 export interface ExportViewProps extends StackProps {
   state: State
@@ -45,9 +38,6 @@ export const ExportView: React.FC<ExportViewProps> = ({
   }, [state])
 
   const url = getHashUrl(env)
-
-  const { onCopy: onCopyEnv, hasCopied: hasCopiedEnv } = useClipboard(env)
-  const { onCopy: onCopyUrl, hasCopied: hasCopiedUrl } = useClipboard(url)
 
   return (
     <Stack spacing={6} {...props}>
@@ -76,6 +66,7 @@ export const ExportView: React.FC<ExportViewProps> = ({
               leftIcon={<FiRefreshCw />}
               onClick={onRotateMasterKey}
               mr="auto"
+              {...useFieldActionButtonProps()}
             >
               Rotate
             </Button>
@@ -96,14 +87,7 @@ export const ExportView: React.FC<ExportViewProps> = ({
         <InputGroup size="sm">
           <Input rounded="md" value={url} isReadOnly />
           <InputRightElement w="4.5rem">
-            <Button
-              leftIcon={hasCopiedUrl ? <FiCheck /> : <FiCopy />}
-              size="xs"
-              aria-label="Copy URL"
-              onClick={onCopyUrl}
-            >
-              Copy
-            </Button>
+            <CopyFieldButton value={url} size="xs" aria-label="Copy URL" />
           </InputRightElement>
         </InputGroup>
       </FormControl>
@@ -129,14 +113,11 @@ export const ExportView: React.FC<ExportViewProps> = ({
             rows={2}
           />
           <InputRightElement w="4.5rem">
-            <Button
-              leftIcon={hasCopiedEnv ? <FiCheck /> : <FiCopy />}
+            <CopyFieldButton
+              value={env}
               size="xs"
               aria-label="Copy environment variables"
-              onClick={onCopyEnv}
-            >
-              Copy
-            </Button>
+            />
           </InputRightElement>
         </InputGroup>
       </FormControl>

@@ -1,19 +1,20 @@
-import React from 'react'
 import {
-  Text,
-  Stack,
-  Input,
   Button,
+  Input,
   Popover,
-  PopoverTrigger,
-  PopoverContent,
-  PopoverHeader,
-  PopoverBody,
-  PopoverFooter,
   PopoverArrow,
+  PopoverBody,
   PopoverCloseButton,
-  PopoverProps
+  PopoverContent,
+  PopoverFooter,
+  PopoverHeader,
+  PopoverProps,
+  PopoverTrigger,
+  Stack,
+  Text,
+  useColorModeValue
 } from '@chakra-ui/react'
+import React from 'react'
 import { FiPlus } from 'react-icons/fi'
 
 export type ImportKeyPopoverProps = PopoverProps & {
@@ -39,7 +40,10 @@ export const ImportKeyPopover: React.FC<ImportKeyPopoverProps> = ({
           <PopoverContent zIndex={4} overflow="hidden">
             <PopoverArrow />
             <PopoverCloseButton />
-            <PopoverHeader fontWeight="semibold" color="gray.800">
+            <PopoverHeader
+              fontWeight="semibold"
+              color={useColorModeValue('gray.800', 'gray.200')}
+            >
               Import key
             </PopoverHeader>
             <PopoverBody>
