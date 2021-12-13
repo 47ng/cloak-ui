@@ -1,18 +1,19 @@
-import React from 'react'
 import {
-  Stack,
-  StackProps,
+  Box,
+  Button,
+  Flex,
+  FlexProps,
   Heading,
   Input,
-  Button,
   useClipboard,
-  useTheme,
-  Box
+  useColorModeValue,
+  useTheme
 } from '@chakra-ui/react'
-import { State, saveToEnv, getHashUrl } from 'src/store'
-import { FiShare2, FiLock, FiRefreshCw, FiCheck, FiCopy } from 'react-icons/fi'
+import React from 'react'
+import { FiCheck, FiCopy, FiLock, FiRefreshCw, FiShare2 } from 'react-icons/fi'
+import { getHashUrl, saveToEnv, State } from 'src/store'
 
-export interface ExportViewProps extends StackProps {
+export interface ExportViewProps extends FlexProps {
   state: State
   onRotateMasterKey: () => void
 }
@@ -38,15 +39,20 @@ export const ExportView: React.FC<ExportViewProps> = ({
   const { onCopy: onCopyUrl, hasCopied: hasCopiedUrl } = useClipboard(url)
 
   return (
-    <Stack isInline {...props} display="flex" alignItems="center">
-      <Heading as="h3" fontSize="md" fontWeight="semibold" color="gray.800">
+    <Flex alignItems="center" flexWrap="wrap" gap={2} {...props}>
+      <Heading
+        as="h3"
+        fontSize="md"
+        fontWeight="semibold"
+        color={useColorModeValue('gray.800', 'gray.300')}
+      >
         <Box
           as={FiLock}
           boxSize={4}
           d="inline-block"
           mr={2}
           mt={-1}
-          color="gray.600"
+          color={useColorModeValue('gray.600', 'gray.500')}
         />
         Master Key
       </Heading>
@@ -84,6 +90,6 @@ export const ExportView: React.FC<ExportViewProps> = ({
       >
         {hasCopiedEnv ? 'Copied' : 'Export'}
       </Button>
-    </Stack>
+    </Flex>
   )
 }

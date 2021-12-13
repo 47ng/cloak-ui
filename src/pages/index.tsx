@@ -1,13 +1,13 @@
-import React from 'react'
+import { Card } from '@47ng/chakra-next'
+import { Container, Stack, Text, useColorModeValue } from '@chakra-ui/react'
 import { NextPage } from 'next'
 import Head from 'next/head'
-import { Text, Container, Stack, useColorModeValue } from '@chakra-ui/react'
-import { Card } from '@47ng/chakra-next'
+import React from 'react'
+import { ExportView } from 'src/components/ExportView'
 import { Header } from 'src/components/Header'
 import { TableView } from 'src/components/TableView'
-import { store, useState } from 'src/store'
 import { useOnPaste } from 'src/hooks/useOnPaste'
-import { ExportView } from 'src/components/ExportView'
+import { store, useState } from 'src/store'
 
 const onPaste = (text: string) => store.dispatch('loadFromPaste', text)
 
@@ -24,13 +24,17 @@ const IndexPage: NextPage = () => {
       <Container maxW="6xl" px={2} my={4}>
         <Header />
       </Container>
-      <Container maxW="4xl" my={12}>
+      <Container maxW="4xl" my={12} px={{ base: 0, sm: 2 }}>
         <Stack spacing={6}>
-          <Text fontSize="xs" color="gray.600">
+          <Text as="em" fontSize="xs" color="gray.600" textAlign="center">
             Tip: paste your Cloak environment variables anywhere
           </Text>
           <Card
+            as="section"
             borderWidth="1px"
+            borderStartWidth={{ base: 0, sm: '1px' }}
+            borderEndWidth={{ base: 0, sm: '1px' }}
+            rounded={{ base: 'none', sm: 'md' }}
             borderColor={useColorModeValue('gray.400', 'gray.700')}
           >
             <TableView
@@ -49,6 +53,7 @@ const IndexPage: NextPage = () => {
           <ExportView
             onRotateMasterKey={() => store.dispatch('rotateMasterKey', null)}
             state={state}
+            px={2}
           />
         </Stack>
       </Container>

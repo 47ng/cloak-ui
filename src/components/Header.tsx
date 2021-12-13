@@ -1,17 +1,17 @@
-import React from 'react'
+import { OutgoingLink } from '@47ng/chakra-next'
 import {
+  Box,
   Flex,
   FlexProps,
-  Box,
-  Text,
-  Stack,
-  Image,
   Heading,
   Icon,
   IconButton,
+  Image,
+  Stack,
+  Text,
   useColorMode
 } from '@chakra-ui/react'
-import { OutgoingLink } from '@47ng/chakra-next'
+import React from 'react'
 import { FiGithub, FiMoon, FiSun } from 'react-icons/fi'
 
 export interface HeaderProps extends FlexProps {}
@@ -22,8 +22,9 @@ export const Header: React.FC<HeaderProps> = ({ ...props }) => {
   return (
     <Flex
       as="header"
-      justifyContent="space-between"
       alignItems="center"
+      flexWrap="wrap-reverse"
+      gap={2}
       {...props}
     >
       <Stack isInline spacing={4}>
@@ -37,7 +38,7 @@ export const Header: React.FC<HeaderProps> = ({ ...props }) => {
           </Text>
         </Box>
       </Stack>
-      <Stack as="nav" isInline fontWeight="medium" spacing={4}>
+      <Stack as="nav" isInline fontWeight="medium" spacing={4} ml="auto">
         <OutgoingLink
           href="https://github.com/47ng/cloak"
           display="inline-flex"

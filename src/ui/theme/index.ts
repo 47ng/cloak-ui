@@ -4,7 +4,7 @@ import { extendTheme } from '@chakra-ui/react'
 export const theme = extendTheme(
   {
     styles: {
-      global: ({ colorMode }) => ({
+      global: ({ colorMode }: { colorMode: 'dark' | 'light' }) => ({
         html: {
           lineHeight: 1.5,
           minWidth: '320px',

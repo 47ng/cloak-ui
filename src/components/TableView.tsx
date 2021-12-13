@@ -1,21 +1,24 @@
-import React from 'react'
-import dayjs from 'dayjs'
-import relativeTime from 'dayjs/plugin/relativeTime'
 import {
   Badge,
   Box,
   Button,
   Flex,
   Grid,
+  Heading,
   IconButton,
+  Radio,
+  Spacer,
   Stack,
   StackProps,
-  Radio,
   Text,
-  useTheme,
-  Heading
+  useBreakpointValue,
+  useColorModeValue,
+  useTheme
 } from '@chakra-ui/react'
-import { FiTrash2, FiUpload, FiPlus } from 'react-icons/fi'
+import dayjs from 'dayjs'
+import relativeTime from 'dayjs/plugin/relativeTime'
+import React from 'react'
+import { FiPlus, FiTrash2, FiUpload } from 'react-icons/fi'
 import { Key } from 'src/types'
 import { ImportKeyPopover } from './ImportKeyPopover'
 
@@ -39,32 +42,46 @@ export const TableView: React.FC<TableViewProps> = ({
   onNewKey,
   ...props
 }) => {
+  const buttonSize = useBreakpointValue({ base: 'md', sm: 'sm' })
   return (
     <Stack spacing={4}>
-      <Stack isInline display="flex">
+      <Flex
+        as="header"
+        flexDirection={{ base: 'column', sm: 'row' }}
+        alignItems="baseline"
+        rowGap={2}
+      >
         <Heading
           as="h2"
           fontSize="lg"
           fontWeight="semibold"
-          color="gray.800"
-          mr="auto"
+          color={useColorModeValue('gray.800', 'gray.300')}
         >
           Keychain
         </Heading>
-        <ImportKeyPopover onSubmit={onImportKey}>
-          <Button size="sm" leftIcon={<FiUpload />} variant="ghost" mr={2}>
-            Import key
+        <Spacer />
+        <Flex as="nav" gap={2} w={{ base: '100%', sm: 'auto' }}>
+          <ImportKeyPopover onSubmit={onImportKey}>
+            <Button
+              size={buttonSize}
+              leftIcon={<FiUpload />}
+              variant="outline"
+              flex={1}
+            >
+              Import key
+            </Button>
+          </ImportKeyPopover>
+          <Button
+            size={buttonSize}
+            leftIcon={<FiPlus />}
+            colorScheme="green"
+            onClick={onNewKey}
+            flex={1}
+          >
+            New key
           </Button>
-        </ImportKeyPopover>
-        <Button
-          size="sm"
-          leftIcon={<FiPlus />}
-          colorScheme="green"
-          onClick={onNewKey}
-        >
-          New key
-        </Button>
-      </Stack>
+        </Flex>
+      </Flex>
       {keys.length > 0 ? (
         <Grid templateColumns="4rem 6rem 4fr 1fr 2rem" {...props} gridGap={2}>
           <>
@@ -82,7 +99,6 @@ export const TableView: React.FC<TableViewProps> = ({
             </Text>
             <Box />
           </>
-
           {keys
             .sort((a, b) => b.createdAt - a.createdAt)
             .map(({ serialized, parsed, createdAt }) => (
@@ -101,7 +117,8 @@ export const TableView: React.FC<TableViewProps> = ({
         <Flex
           alignItems="center"
           justifyContent="center"
-          h={12}
+          textAlign="center"
+          py={4}
           fontSize="sm"
           color="gray.500"
         >
