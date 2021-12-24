@@ -58,6 +58,7 @@ export const ImportKeyPopover: React.FC<ImportKeyPopoverProps> = ({
                   onSubmit(key)
                     .then(() => {
                       if (onClose) {
+                        inputRef.current!.value = ''
                         onClose()
                       }
                     })
