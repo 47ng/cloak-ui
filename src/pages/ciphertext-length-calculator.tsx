@@ -1,3 +1,4 @@
+import { cardProps } from '@47ng/chakra-next'
 import { encryptString, generateKey } from '@47ng/cloak'
 import {
   Container,
@@ -39,7 +40,14 @@ const CiphertextLengthCalculator: NextPage = () => {
       <Container maxW="6xl" px={2} my={4}>
         <Header />
       </Container>
-      <Container maxW="lg" my={12} px={{ base: 0, sm: 2 }}>
+      <Container
+        maxW="lg"
+        my={12}
+        px={{ base: 0, sm: 2 }}
+        {...cardProps}
+        bg="white"
+        py={8}
+      >
         <Stack spacing={6} alignItems="center">
           <Text>
             What is the maximum length of your clear-text string input?
