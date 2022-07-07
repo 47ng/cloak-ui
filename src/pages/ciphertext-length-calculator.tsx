@@ -46,7 +46,6 @@ const CiphertextLengthCalculator: NextPage = () => {
         px={{ base: 0, sm: 2 }}
         borderWidth="1px"
         {...cardProps}
-        bg="white"
         py={8}
       >
         <Stack spacing={6} alignItems="center">
