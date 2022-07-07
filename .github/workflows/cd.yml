@@ -31,7 +31,7 @@ jobs:
 
       # Continuous Delivery Pipeline --
 
-      - uses: dswistowski/surge-sh-action@c09463ed5222f67391260fa806240d4e464743d0
+      - uses: dswistowski/surge-sh-action@c20b9ece7374f66af0b5f21e03587fc55bafa919
         name: Publish to Surge
         with:
           domain: ${{ secrets.DEPLOYMENT_URL }}
