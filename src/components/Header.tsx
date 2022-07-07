@@ -1,4 +1,4 @@
-import { OutgoingLink } from '@47ng/chakra-next'
+import { OutgoingLink, RouteLink } from '@47ng/chakra-next'
 import {
   Box,
   Flex,
@@ -13,6 +13,7 @@ import {
 } from '@chakra-ui/react'
 import React from 'react'
 import { FiGithub, FiMoon, FiSun } from 'react-icons/fi'
+import { IoCalculatorOutline } from 'react-icons/io5'
 
 export interface HeaderProps extends FlexProps {}
 
@@ -24,11 +25,13 @@ export const Header: React.FC<HeaderProps> = ({ ...props }) => {
       as="header"
       alignItems="center"
       flexWrap="wrap-reverse"
-      gap={2}
+      gap={8}
       {...props}
     >
       <Stack isInline spacing={4}>
-        <Image src="/logo.png" alt="Gold key emoji" boxSize={12} />
+        <RouteLink to="/">
+          <Image src="/logo.png" alt="Gold key emoji" boxSize={12} />
+        </RouteLink>
         <Box>
           <Heading as="h1" fontSize="xl" fontWeight="bold">
             Cloak UI
@@ -38,6 +41,20 @@ export const Header: React.FC<HeaderProps> = ({ ...props }) => {
           </Text>
         </Box>
       </Stack>
+      <RouteLink
+        to="/ciphertext-length-calculator"
+        mr={12}
+        fontSize="sm"
+        fontWeight="medium"
+      >
+        <Icon
+          as={IoCalculatorOutline}
+          mr={1}
+          verticalAlign="middle"
+          mt="-3px"
+        />
+        Ciphertext Length Calculator
+      </RouteLink>
       <Stack as="nav" isInline fontWeight="medium" spacing={4} ml="auto">
         <OutgoingLink
           href="https://github.com/47ng/cloak"
