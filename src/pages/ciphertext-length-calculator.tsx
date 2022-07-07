@@ -16,7 +16,7 @@ import { Header } from 'src/components/Header'
 
 const key = generateKey()
 
-const CiphertextLengthEstimator: NextPage = () => {
+const CiphertextLengthCalculator: NextPage = () => {
   const [clearTextLength, setClearTextLength] = React.useState(50)
   const [cipherTextLength, setCipherTextLength] = React.useState<number>(0)
 
@@ -33,7 +33,7 @@ const CiphertextLengthEstimator: NextPage = () => {
   return (
     <>
       <Head>
-        <title>Ciphertext Length Estimator | Cloak UI</title>
+        <title>Ciphertext Length Calculator | Cloak UI</title>
         <link rel="icon" href="/logo.png" />
       </Head>
       <Container maxW="6xl" px={2} my={4}>
@@ -70,4 +70,4 @@ const CiphertextLengthEstimator: NextPage = () => {
   )
 }
 
-export default CiphertextLengthEstimator
+export default CiphertextLengthCalculator
