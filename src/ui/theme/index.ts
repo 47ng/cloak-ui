@@ -1,10 +1,11 @@
-import { defaultTheme } from '@47ng/chakra-next'
+import { chakraNextTheme } from '@47ng/chakra-next'
 import { extendTheme } from '@chakra-ui/react'
 
 export const theme = extendTheme(
   {
     styles: {
       global: ({ colorMode }: { colorMode: 'dark' | 'light' }) => ({
+        ...chakraNextTheme.styles.global({ colorMode }),
         html: {
           lineHeight: 1.5,
           minWidth: '320px',
@@ -12,12 +13,8 @@ export const theme = extendTheme(
           fontSmooth: 'auto',
           '-moz-osx-font-smoothing': 'auto'
         },
-        'html, body': {
-          bg: colorMode === 'light' ? 'gray.200' : 'gray.1000',
-          color: colorMode === 'light' ? 'gray.800' : 'gray.400'
-        },
         '*': {
-          borderColor: colorMode === 'light' ? 'gray.400' : 'gray.700'
+          borderColor: colorMode === 'light' ? 'gray.300' : 'gray.700'
         },
         '::placeholder': {
           color: colorMode === 'light' ? 'gray.500' : 'gray.500'
@@ -25,5 +22,5 @@ export const theme = extendTheme(
       })
     }
   },
-  defaultTheme as any
+  chakraNextTheme
 )

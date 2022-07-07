@@ -1,5 +1,5 @@
-import { Card } from '@47ng/chakra-next'
-import { Container, Stack, Text, useColorModeValue } from '@chakra-ui/react'
+import { cardProps } from '@47ng/chakra-next'
+import { Box, Container, Stack, Text } from '@chakra-ui/react'
 import { NextPage } from 'next'
 import Head from 'next/head'
 import { ExportView } from 'src/components/ExportView'
@@ -28,14 +28,14 @@ const IndexPage: NextPage = () => {
           <Text as="em" fontSize="xs" color="gray.600" textAlign="center">
             Tip: paste your Cloak environment variables anywhere
           </Text>
-          <Card
+          <Box
+            {...cardProps}
             as="section"
             px={0}
             borderWidth="1px"
             borderStartWidth={{ base: 0, sm: '1px' }}
             borderEndWidth={{ base: 0, sm: '1px' }}
             rounded={{ base: 'none', sm: 'md' }}
-            borderColor={useColorModeValue('gray.400', 'gray.700')}
           >
             <TableView
               keys={state.keys}
@@ -52,7 +52,7 @@ const IndexPage: NextPage = () => {
               onNewKey={() => store.dispatch('createKey', null)}
               onImportKey={key => store.dispatch('importKey', key)}
             />
-          </Card>
+          </Box>
           <ExportView
             onRotateMasterKey={() => store.dispatch('rotateMasterKey', null)}
             state={state}

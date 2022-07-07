@@ -42,11 +42,11 @@ export const ExportView: React.FC<ExportViewProps> = ({
   return (
     <Stack spacing={6} {...props}>
       <FormControl>
-        <FormLabel d="flex" alignItems="center">
+        <FormLabel display="flex" alignItems="center">
           <Box
             as={FiLock}
             boxSize={4}
-            d="inline-block"
+            display="inline-block"
             mr={2}
             color={useColorModeValue('gray.600', 'gray.500')}
           />{' '}
@@ -74,11 +74,11 @@ export const ExportView: React.FC<ExportViewProps> = ({
         </InputGroup>
       </FormControl>
       <FormControl>
-        <FormLabel d="flex" alignItems="center">
+        <FormLabel display="flex" alignItems="center">
           <Box
             as={FiLink}
             boxSize={4}
-            d="inline-block"
+            display="inline-block"
             mr={2}
             color={useColorModeValue('gray.600', 'gray.500')}
           />{' '}
@@ -92,11 +92,11 @@ export const ExportView: React.FC<ExportViewProps> = ({
         </InputGroup>
       </FormControl>
       <FormControl>
-        <FormLabel d="flex" alignItems="center">
+        <FormLabel display="flex" alignItems="center">
           <Box
             as={FiCode}
             boxSize={4}
-            d="inline-block"
+            display="inline-block"
             mr={2}
             color={useColorModeValue('gray.600', 'gray.500')}
           />{' '}

@@ -41,9 +41,10 @@ const CiphertextLengthCalculator: NextPage = () => {
         <Header />
       </Container>
       <Container
-        maxW="lg"
+        maxW="xl"
         my={12}
         px={{ base: 0, sm: 2 }}
+        borderWidth="1px"
         {...cardProps}
         bg="white"
         py={8}
