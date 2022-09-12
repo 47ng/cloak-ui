@@ -32,7 +32,7 @@
     "@emotion/styled": "^11.9.3",
     "dayjs": "^1.11.3",
     "framer-motion": "^6.4.2",
-    "next": "^12.2.0",
+    "next": "^12.3.0",
     "next-seo": "^5.4.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
